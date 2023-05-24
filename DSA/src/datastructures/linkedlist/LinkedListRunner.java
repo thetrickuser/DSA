@@ -1,6 +1,6 @@
 package datastructures.linkedlist;
 
-public class SinglyLinkedListRunner {
+public class LinkedListRunner {
 	public static void main(String[] args) {
 //		MySinglyLinkedList sll = new MySinglyLinkedList();
 //		System.out.println(sll.isPresent(89));
@@ -28,24 +28,33 @@ public class SinglyLinkedListRunner {
 //		sll.printList();
 //		System.out.println(sll.head.next.value);
 		
-		MyCircularSinglyLinkedList csll = new MyCircularSinglyLinkedList();
-		csll.add(23, 7);
-		csll.printList();
-		csll.add(34, 1);
-		csll.add(30, 0);
-		csll.printList();
-		csll.add(32, 1);
-		csll.printList();
-		csll.add(45, 10);
-		csll.add(54, 11);
-		csll.add(64, 12);
-		csll.printList();
-		csll.deleteAtIndex(0);
-		csll.printList();
-		csll.deleteAtIndex(csll.size - 1);
-		csll.printList();
-		csll.deleteAtIndex(2);
-		csll.printList();
+//		MyCircularSinglyLinkedList csll = new MyCircularSinglyLinkedList();
+//		csll.add(23, 7);
+//		csll.printList();
+//		csll.add(34, 1);
+//		csll.add(30, 0);
+//		csll.printList();
+//		csll.add(32, 1);
+//		csll.printList();
+//		csll.add(45, 10);
+//		csll.add(54, 11);
+//		csll.add(64, 12);
+//		csll.printList();
+//		csll.deleteAtIndex(0);
+//		csll.printList();
+//		csll.deleteAtIndex(csll.size - 1);
+//		csll.printList();
+//		csll.deleteAtIndex(2);
+//		csll.printList();
+		
+		MyDoublyLinkedList dll = new MyDoublyLinkedList();
+		dll.add(23, 45);
+//		dll.add(24, 32);
+//		dll.add(35, 0);
+//		dll.add(90, 1);
+		dll.printList();
+		dll.deleteAtIndex(0);
+		
 		
 		
 		

@@ -1,53 +1,62 @@
 package datastructures.linkedlist;
 
-public class MyCircularSinglyLinkedList {
-	Node head;
-	Node tail;
+public class MyCircularDoublyLinkedList {
+	
+	DoublyNode head;
+	DoublyNode tail;
 	int size;
 	
-	public MyCircularSinglyLinkedList() {
+	public MyCircularDoublyLinkedList() {
 		head = null;
 		tail = null;
 		size = 0;
 	}
 	
 	public void add(int value, int location) {
-		Node node = new Node();
+		DoublyNode node = new DoublyNode();
 		node.value = value;
 		
 		if (head == null) {
-			node.next = node;
 			head = node;
 			tail = node;
+			tail.next = head;
+			head.prev = tail;
 		} else if (location == 0) {
+			head.prev = node;
 			node.next = head;
 			head = node;
 			tail.next = head;
+			head.prev = tail;
 		} else if (location >= size) {
 			tail.next = node;
-			node.next = head;
+			node.prev = tail;
 			tail = node;
+			tail.next = head;
+			head.prev = tail;
 		} else {
-			Node currNode = head;
-			int curr = 1;
+			DoublyNode currNode = head;
+			int curr = 0;
 			while (curr < location) {
 				currNode = currNode.next;
 				curr++;
 			}
 			
-			node.next = currNode.next;
-			currNode.next = node;
-		}		
-
+			node.prev = currNode.prev;
+			currNode.prev.next = node;
+			currNode.prev = node;
+			node.next = currNode;
+		}
+		
 		size++;
 	}
 	
 	public void printList() {
 		if (head != null) {
-			Node curr = head;
-			for (int i=0; i<size; i++) {
+			DoublyNode curr = head;
+			int currIndex = 0;
+			while (curr != null && currIndex < size - 1) {
 				System.out.println(curr.value);
-				curr = curr.next;				
+				curr = curr.next;
 			}
 		}
 		System.out.println("------------------------");
@@ -56,7 +65,7 @@ public class MyCircularSinglyLinkedList {
 	public boolean isPresent(int searchValue) {
 		if (head == null) return false;
 		
-		Node currNode = head;
+		DoublyNode currNode = head;
 		while (currNode != null) {
 			if (currNode.value == searchValue) return true;
 			currNode = currNode.next;			
@@ -74,33 +83,39 @@ public class MyCircularSinglyLinkedList {
 				tail = null;
 			} else {
 				head = head.next;
-				tail.next = head;
+				head.prev = null;
 			}
 		} else {
-			Node currNode = head;
-			int curr = 1;
-			while (curr < index) {
-				currNode = currNode.next;
-				curr++;
-			}
 			if (index == size - 1) {
-				currNode.next = head;
-				tail = currNode;
+				tail = tail.prev;
+				tail.next = null;
 			} else {
-				Node nextNode = currNode.next;
-				currNode.next = nextNode.next;
-			}				
+				DoublyNode currNode = head;
+				int curr = 0;
+				while (curr < index) {
+					currNode = currNode.next;
+					curr++;
+				}
+				
+				currNode.prev.next = currNode.next;
+				currNode.next.prev = currNode.prev;				
+			}
 		}
 		
 		size--;
 	}
 	
 	public void deleteList() {
-		tail.next = null;
+		DoublyNode curr = head.next;
+		for (int i=1; i<size; i++) {
+			curr.prev = null;
+		}
 		head = null;
 		tail = null;
 		size = 0;
 	}
+	
+	
 	
 
 }
