@@ -47,13 +47,25 @@ public class LinkedListRunner {
 //		csll.deleteAtIndex(2);
 //		csll.printList();
 		
-		MyDoublyLinkedList dll = new MyDoublyLinkedList();
-		dll.add(23, 45);
-//		dll.add(24, 32);
-//		dll.add(35, 0);
-//		dll.add(90, 1);
-		dll.printList();
-		dll.deleteAtIndex(0);
+//		MyDoublyLinkedList dll = new MyDoublyLinkedList();
+//		dll.add(23, 45);
+////		dll.add(24, 32);
+////		dll.add(35, 0);
+////		dll.add(90, 1);
+//		dll.printList();
+//		dll.deleteAtIndex(0);
+
+		MyCircularDoublyLinkedList cdll = new MyCircularDoublyLinkedList();
+		cdll.add(2,3);
+		cdll.printList();
+		cdll.add(23,1);
+		cdll.add(34,0);
+		cdll.add(32,1);
+		cdll.printList();
+		cdll.deleteAtIndex(2);
+		cdll.printList();
+		cdll.deleteList();
+		cdll.printList();
 		
 		
 		

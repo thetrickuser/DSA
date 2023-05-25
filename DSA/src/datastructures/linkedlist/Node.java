@@ -1,6 +1,6 @@
 package datastructures.linkedlist;
 
-class Node {
-	int value;
-	Node next;
+public class Node {
+	public int value;
+	public Node next;
 }

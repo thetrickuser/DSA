@@ -4,6 +4,19 @@ public class MyDoublyLinkedList {
 	
 	DoublyNode head;
 	DoublyNode tail;
+
+	public DoublyNode getHead() {
+		return head;
+	}
+
+	public DoublyNode getTail() {
+		return tail;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
 	int size;
 	
 	public MyDoublyLinkedList() {

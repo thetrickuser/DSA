@@ -54,9 +54,10 @@ public class MyCircularDoublyLinkedList {
 		if (head != null) {
 			DoublyNode curr = head;
 			int currIndex = 0;
-			while (curr != null && currIndex < size - 1) {
+			while (curr != null && currIndex <= size - 1) {
 				System.out.println(curr.value);
 				curr = curr.next;
+				currIndex++;
 			}
 		}
 		System.out.println("------------------------");

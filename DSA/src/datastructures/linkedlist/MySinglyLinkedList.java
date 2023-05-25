@@ -1,11 +1,24 @@
 package datastructures.linkedlist;
 
 public class MySinglyLinkedList {
-	
-	Node head;
-	Node tail;
-	int size;
-	
+
+
+	public Node head;
+	public Node tail;
+	public int size;
+
+	public Node getHead() {
+		return head;
+	}
+
+	public Node getTail() {
+		return tail;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
 	public MySinglyLinkedList() {
 		head = null;
 		tail = null;
@@ -45,11 +58,13 @@ public class MySinglyLinkedList {
 		if (head != null) {
 			Node curr = head;
 			while (curr != null) {
-				System.out.println(curr.value);
+				System.out.print(curr.value);
+				if (curr.next != null)
+					System.out.print("->");
 				curr = curr.next;
 			}
 		}
-		System.out.println("------------------------");
+		System.out.println("\n------------------------");
 	}
 	
 	public boolean isPresent(int searchValue) {

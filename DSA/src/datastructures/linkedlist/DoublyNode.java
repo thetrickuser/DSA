@@ -1,7 +1,7 @@
 package datastructures.linkedlist;
 
-class DoublyNode {
-	int value;
-	DoublyNode next;
-	DoublyNode prev;
+public class DoublyNode {
+	public int value;
+	public DoublyNode next;
+	public DoublyNode prev;
 }
